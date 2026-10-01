@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính Năng Vượt Trội Hộp Thuốc Thông Minh IoT PillMate</title>
+  <meta name="description" content="Công nghệ nhắc giờ uống thuốc đa kênh, đèn LED chỉ dẫn, cảm biến mở nắp chống nhầm lẫn và ứng dụng kết nối gia đình từ xa.">
+  <meta name="keywords" content="PillMate, hộp thuốc thông minh, nhắc uống thuốc, chăm sóc sức khỏe người cao tuổi, trợ lý y tế AI, IoT y tế">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-transparent.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <div class="brand view-trigger" data-target="view-home">
+        <img src="assets/logo-transparent.png" alt="PillMate Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <div class="brand-name">Pill<span class="brand-name-accent">Mate</span></div>
+          <span class="brand-tagline">Trợ lý sức khỏe tại nhà</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link" data-target="view-home">Trang chủ</a></li>
+          <li><a href="#product" class="nav-link" data-target="view-product">Sản phẩm</a></li>
+          <li><a href="#features" class="nav-link" data-target="view-features" class="nav-link active">Tính năng</a></li>
+          <li><a href="#ai-assistant" class="nav-link" data-target="view-ai">Trợ lý AI</a></li>
+          <li><a href="#about" class="nav-link" data-target="view-about">Về chúng tôi</a></li>
+          <li class="mobile-theme-row">
+            <span class="mobile-theme-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+              <span class="mobile-theme-text">☀️ Chế độ Sáng</span>
+            </span>
+            <button class="theme-pill-btn" id="mobile-theme-toggle" aria-label="Chuyển chế độ sáng tối">
+              <span class="theme-pill-icons">
+                <span class="icon-sun-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle></svg></span>
+                <span class="icon-moon-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+              </span>
+              <span class="theme-pill-thumb">
+                <svg class="sun-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              </span>
+            </button>
+          </li>
+          <li class="mobile-only-nav-item">
+            <button class="btn btn-primary open-consult-modal open-order-modal mobile-consult-btn" data-package="pro">
+              Liên hệ tư vấn ngay
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Modern Sliding Pill Light/Dark Toggle -->
+        <div class="theme-switch-wrapper" title="Chuyển chế độ Sáng / Tối">
+          <button class="theme-pill-btn" id="theme-toggle" aria-label="Chuyển chế độ sáng tối">
+            <span class="theme-pill-icons">
+              <span class="icon-sun-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle></svg></span>
+              <span class="icon-moon-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+            </span>
+            <span class="theme-pill-thumb">
+              <svg class="sun-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+          </button>
+        </div>
+
+        <button class="btn btn-primary btn-sm open-consult-modal open-order-modal nav-cta-btn" data-package="pro">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-cta-text">Liên hệ tư vấn</span>
+        </button>
+
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section id="view-features" class="view-section active">
+      <div class="container" style="padding: 60px 24px;">
+        <div class="section-header">
+          <span class="section-subtitle">Hệ Sinh Thái Toàn Diện</span>
+          <h2 class="section-title">8 Tính Năng Vượt Trội Của PillMate</h2>
+          <p class="section-lead">Số hóa toàn diện quy trình dùng thuốc tại nhà, giúp việc điều trị trở nên chuẩn xác và nhẹ nhàng.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Nhắc nhở thông minh</h3>
+            <p class="feature-desc">Đèn LED sáng tại từng ngăn kết hợp loa cảnh báo vòm theo lịch trình cá nhân hóa, không sợ nhầm buổi.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Đồng bộ ứng dụng di động</h3>
+            <p class="feature-desc">Tương thích hoàn hảo với iOS & Android. Kết nối đám mây tức thì mọi lúc mọi nơi qua 4G/WiFi.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Quản lý lịch liều trực quan</h3>
+            <p class="feature-desc">Tạo lịch trình dùng thuốc phức tạp (trước ăn, sau ăn, cách ngày, liều giảm dần) chỉ bằng vài chạm.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Nhật ký uống thuốc chi tiết</h3>
+            <p class="feature-desc">Ghi nhận chính xác ngày, giờ, phút nắp hộp được mở ra, giúp đánh giá mức độ tuân thủ điều trị.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Cảnh báo bỏ lỡ liều</h3>
+            <p class="feature-desc">Tự động kích hoạt gọi điện và nhắn tin cho con cháu nếu bệnh nhân quên uống sau 15-30 phút.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Giám sát gia đình từ xa</h3>
+            <p class="feature-desc">Nhiều người con có thể cùng theo dõi một hộp thuốc của bố mẹ. Nhận tin nhắn thông báo tức thời.</p>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Báo cáo sức khỏe định kỳ</h3>
+            <p class="feature-desc">Tự động tổng hợp biểu đồ tuân thủ theo tuần/tháng xuất file PDF chuẩn để mang theo khi tái khám.</p>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="feature-item-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                <path d="M12 12 2.1 10a10 10 0 0 0 9.9 12V12z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Trợ lý AI phân tích toa</h3>
+            <p class="feature-desc">Quét hình ảnh đơn thuốc, phát hiện nguy cơ tương tác thuốc và tự động đề xuất khung giờ uống tối ưu.</p>
+            <button class="btn btn-outline btn-sm view-trigger" data-target="view-ai" style="margin-top:14px; font-size:0.82rem; padding:6px 14px; border-radius:var(--radius-full);">Trải nghiệm Trợ lý AI &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Family Monitoring Showcase Component -->
+        <div class="family-showcase">
+          <div>
+            <span class="badge-tag">Kết Nối Yêu Thương</span>
+            <h3 style="font-size: 2rem; font-weight:800; color:var(--dark); margin-bottom:16px;">
+              Dù Cách Xa Ngàn Cây Số, Con Vẫn Luôn Bên Cha Mẹ
+            </h3>
+            <p style="color:var(--text-muted); line-height:1.7; margin-bottom: 24px;">
+              Giao diện Family Care trên ứng dụng PillMate cho phép các thành viên trong gia đình phân chia nhiệm vụ chăm sóc. Con cái tại Hà Nội hay TP.HCM đều có thể theo dõi mẹ ở quê đã uống đúng viên thuốc huyết áp sáng nay chưa.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px; font-weight:600; color:var(--dark);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Thông báo đẩy (Push Notification) thời gian thực
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; font-weight:600; color:var(--dark);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Gọi khẩn cấp tự động khi người thân trễ thuốc quá 30 phút
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; font-weight:600; color:var(--dark);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Phân quyền nhiều người chăm sóc (Con trai, con gái, người điều dưỡng)
+              </div>
+            </div>
+          </div>
+
+          <div class="family-app-mockup">
+            <h4 style="font-size:1.1rem; font-weight:800; color:var(--dark); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+              <span>Gia đình Bác Minh</span>
+              <span style="font-size:0.75rem; color:var(--success); background:var(--success-soft); padding:3px 10px; border-radius:99px;">Trực tuyến</span>
+            </h4>
+            <div class="member-list">
+              <div class="member-item">
+                <div class="member-meta">
+                  <div class="member-avatar">BM</div>
+                  <div>
+                    <h5 style="font-size:0.95rem; font-weight:700;">Bác Minh (Bố - 76 tuổi)</h5>
+                    <p style="font-size:0.75rem; color:var(--text-muted);">Liều sáng: Đã uống (07:32)</p>
+                  </div>
+                </div>
+                <span style="color:var(--success); font-weight:700; font-size:0.85rem;">100% Đúng giờ</span>
+              </div>
+              <div class="member-item">
+                <div class="member-meta">
+                  <div class="member-avatar" style="background:#ccfbf1; color:#0d9488;">HL</div>
+                  <div>
+                    <h5 style="font-size:0.95rem; font-weight:700;">Hoàng Lan (Con gái - HN)</h5>
+                    <p style="font-size:0.75rem; color:var(--text-muted);">Người giám sát chính</p>
+                  </div>
+                </div>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Đã xem thông báo</span>
+              </div>
+              <div class="member-item">
+                <div class="member-meta">
+                  <div class="member-avatar" style="background:#fee2e2; color:#ef4444;">TT</div>
+                  <div>
+                    <h5 style="font-size:0.95rem; font-weight:700;">Tuấn Thành (Con trai - TP.HCM)</h5>
+                    <p style="font-size:0.75rem; color:var(--text-muted);">Người nhận SMS khẩn cấp</p>
+                  </div>
+                </div>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Sẵn sàng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="order-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn">&times;</button>
+      <div style="margin-bottom: 20px;">
+        <span class="badge-tag">Tư Vấn Chuyên Sâu & Nhận Tài Liệu</span>
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-top: 4px;">Đăng Ký Tư Vấn Giải Pháp PillMate</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Vui lòng để lại thông tin, chuyên viên công nghệ y tế PillMate sẽ liên hệ tư vấn và gửi tài liệu chi tiết trong vòng 15-30 phút.</p>
+      </div>
+
+      <form id="order-checkout-form">
+        <div class="order-form-group">
+          <label for="modal-package-select">Giải pháp bạn đang quan tâm</label>
+          <select id="modal-package-select" required>
+            <option value="pro">PillMate Pro (Chăm sóc gia đình & người cao tuổi từ xa)</option>
+            <option value="core">PillMate Core (Quản lý thuốc cá nhân thông minh)</option>
+            <option value="enterprise">PillMate Enterprise (Giải pháp Bệnh viện & Viện dưỡng lão)</option>
+            <option value="partnership">Hợp tác nghiên cứu & Phân phối giải pháp</option>
+          </select>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-name">Họ và tên của bạn</label>
+          <input type="text" id="order-name" placeholder="Ví dụ: Nguyễn Văn An" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-phone">Số điện thoại liên hệ</label>
+          <input type="tel" id="order-phone" placeholder="Ví dụ: 0987 654 321" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-email">Email nhận tài liệu / Brochure (không bắt buộc)</label>
+          <input type="email" id="order-email" placeholder="Ví dụ: an.nguyen@example.com">
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-note">Nhu cầu cụ thể hoặc câu hỏi bạn cần giải đáp</label>
+          <textarea id="order-note" rows="3" placeholder="Ví dụ: Cần tư vấn thiết bị cho cha mẹ ở quê, theo dõi từ xa qua điện thoại..."></textarea>
+        </div>
+
+        <div class="order-summary-box">
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; margin-bottom:8px; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span><strong>Tư vấn 100% miễn phí:</strong> Đội ngũ kỹ thuật y tế tư vấn giải pháp tối ưu.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span><strong>Nhận trọn bộ tài liệu:</strong> Brochure thông số, kết quả thử nghiệm lâm sàng & chứng nhận y tế.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1.05rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px; vertical-align:middle;">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          Gửi yêu cầu nhận tư vấn
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom: 14px;">
+            <img src="assets/logo-transparent.png" alt="PillMate Logo" class="brand-logo-img footer-logo-img">
+            <div class="brand-text">
+              <div class="brand-name" style="color:white;">Pill<span style="color:var(--accent, #5fa896);">Mate</span></div>
+              <span class="brand-tagline" style="color:#94a3b8;">Trợ lý sức khỏe tại nhà</span>
+            </div>
+          </div>
+          <p>
+            PillMate là giải pháp y tế số thông minh tiên phong tại Việt Nam, mang công nghệ IoT và AI hỗ trợ người bệnh tuân thủ dùng thuốc đúng giờ, trọn vẹn sự an tâm cho mọi mái ấm.
+          </p>
+          <div style="font-size: 0.85rem; color:#94a3b8;">
+            Hotline: <strong>1900 8866</strong> (Miễn phí 24/7)<br>
+            Email: <strong>contact@pillmate.vn</strong><br>
+            Địa chỉ: Tầng 8, Tòa nhà Innovation Hub, Khu Công Nghệ Cao, TP. Hà Nội
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sản Phẩm</h4>
+          <ul class="footer-links">
+            <li><a href="#product" class="view-trigger" data-target="view-product">PillMate Pro</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">PillMate Core</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">Giải pháp Doanh nghiệp & Viện</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">Thông số kỹ thuật</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Giải Pháp</h4>
+          <ul class="footer-links">
+            <li><a href="#features" class="view-trigger" data-target="view-features">Nhắc nhở thông minh</a></li>
+            <li><a href="#features" class="view-trigger" data-target="view-features">Cảnh báo quên liều</a></li>
+            <li><a href="#features" class="view-trigger" data-target="view-features">Ứng dụng di động</a></li>
+            <li><a href="#ai-assistant" class="view-trigger" data-target="view-ai">Trợ lý Y tế AI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Về PillMate</h4>
+          <ul class="footer-links">
+            <li><a href="#about" class="view-trigger" data-target="view-about">Câu chuyện thương hiệu</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Hội đồng cố vấn</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Chứng nhận y tế ISO 13485</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 PillMate Vietnam Co., Ltd. Tất cả quyền được bảo lưu. Giấy phép thiết bị y tế số: 2400012/BYT-TB-BQP.
+        </div>
+        <div style="display:flex; gap:16px;">
+          <a href="#about" class="view-trigger" data-target="view-about">Điều khoản dịch vụ</a>
+          <span>•</span>
+          <a href="#about" class="view-trigger" data-target="view-about">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>

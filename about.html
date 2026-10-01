@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Về Chúng Tôi – Đội Ngũ Phát Triển Nòng Cốt PillMate</title>
+  <meta name="description" content="Hành trình kiến tạo vì một thế hệ người cao tuổi an yên. Gặp gỡ ban lãnh đạo và đội ngũ phát triển nòng cốt PillMate.">
+  <meta name="keywords" content="PillMate, hộp thuốc thông minh, nhắc uống thuốc, chăm sóc sức khỏe người cao tuổi, trợ lý y tế AI, IoT y tế">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-transparent.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <div class="brand view-trigger" data-target="view-home">
+        <img src="assets/logo-transparent.png" alt="PillMate Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <div class="brand-name">Pill<span class="brand-name-accent">Mate</span></div>
+          <span class="brand-tagline">Trợ lý sức khỏe tại nhà</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link" data-target="view-home">Trang chủ</a></li>
+          <li><a href="#product" class="nav-link" data-target="view-product">Sản phẩm</a></li>
+          <li><a href="#features" class="nav-link" data-target="view-features">Tính năng</a></li>
+          <li><a href="#ai-assistant" class="nav-link" data-target="view-ai">Trợ lý AI</a></li>
+          <li><a href="#about" class="nav-link" data-target="view-about" class="nav-link active">Về chúng tôi</a></li>
+          <li class="mobile-theme-row">
+            <span class="mobile-theme-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+              <span class="mobile-theme-text">☀️ Chế độ Sáng</span>
+            </span>
+            <button class="theme-pill-btn" id="mobile-theme-toggle" aria-label="Chuyển chế độ sáng tối">
+              <span class="theme-pill-icons">
+                <span class="icon-sun-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle></svg></span>
+                <span class="icon-moon-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+              </span>
+              <span class="theme-pill-thumb">
+                <svg class="sun-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              </span>
+            </button>
+          </li>
+          <li class="mobile-only-nav-item">
+            <button class="btn btn-primary open-consult-modal open-order-modal mobile-consult-btn" data-package="pro">
+              Liên hệ tư vấn ngay
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Modern Sliding Pill Light/Dark Toggle -->
+        <div class="theme-switch-wrapper" title="Chuyển chế độ Sáng / Tối">
+          <button class="theme-pill-btn" id="theme-toggle" aria-label="Chuyển chế độ sáng tối">
+            <span class="theme-pill-icons">
+              <span class="icon-sun-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle></svg></span>
+              <span class="icon-moon-bg"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+            </span>
+            <span class="theme-pill-thumb">
+              <svg class="sun-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+          </button>
+        </div>
+
+        <button class="btn btn-primary btn-sm open-consult-modal open-order-modal nav-cta-btn" data-package="pro">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-cta-text">Liên hệ tư vấn</span>
+        </button>
+
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section id="view-about" class="view-section active">
+      <div class="container about-hero">
+        <div class="section-header">
+          <span class="section-subtitle">Sứ Mệnh & Câu Chuyện Khởi Nghiệp</span>
+          <h2 class="section-title">Hành Trình Kiến Tạo Vì Một Thế Hệ Người Cao Tuổi An Yên</h2>
+          <p class="section-lead">
+            PillMate ra đời từ nỗi niềm của những người con xa xứ, luôn trăn trở mỗi khi cha mẹ ở quê đau ốm và phải đối mặt với hàng chục loại thuốc mỗi ngày.
+          </p>
+        </div>
+
+        <div class="about-values-grid">
+          <div class="about-value-box">
+            <div class="pillar-icon" style="margin: 0 auto 16px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3>Sứ Mệnh</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">
+              Ứng dụng công nghệ IoT và AI để xóa bỏ hoàn toàn rào cản quên thuốc, đảm bảo mọi người bệnh đều được tiếp cận giải pháp tuân thủ điều trị an toàn, dễ dùng nhất.
+            </p>
+          </div>
+
+          <div class="about-value-box">
+            <div class="pillar-icon" style="margin: 0 auto 16px; background:#fef3c7; color:#d97706;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m4.93 4.93 4.24 4.24"></path>
+                <path d="m14.83 9.17 4.24-4.24"></path>
+                <path d="m14.83 14.83 4.24 4.24"></path>
+                <path d="m9.17 14.83-4.24 4.24"></path>
+              </svg>
+            </div>
+            <h3>Tầm Nhìn 2030</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">
+              Trở thành nền tảng chăm sóc sức khỏe tại gia số 1 Việt Nam và Đông Nam Á, kết nối trực tiếp bệnh nhân, gia đình và hệ sinh thái bệnh viện công nghệ số.
+            </p>
+          </div>
+
+          <div class="about-value-box">
+            <div class="pillar-icon" style="margin: 0 auto 16px; background:var(--success-soft); color:var(--success);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Giá Trị: Chuẩn Mực</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">
+              <strong>Chính xác – Tiện lợi – An toàn</strong> là kim chỉ nam cho mọi dòng code và linh kiện phần cứng chúng tôi kiến tạo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core Leadership & Development Team -->
+        <div style="margin-top: 60px;">
+          <div class="section-header" style="margin-bottom: 36px;">
+            <span class="section-subtitle">Bộ Máy Vận Hành • Core Leadership</span>
+            <h3 class="section-title" style="font-size: 2rem;">Đội Ngũ Phát Triển Nòng Cốt PillMate</h3>
+            <p class="section-lead">Hội tụ chuyên môn đa ngành dẫn dắt sứ mệnh số hóa chăm sóc sức khỏe gia đình.</p>
+          </div>
+
+          <div class="team-grid">
+            <!-- CEO: Nguyễn Quốc Hưng -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-ceo">QH</div>
+                <span class="team-badge badge-ceo">CEO</span>
+              </div>
+              <h4 class="team-name">Nguyễn Quốc Hưng</h4>
+              <div class="team-role">CEO — Project Management</div>
+              <span class="team-scope">Quản Trị Dự Án & Định Hướng Chiến Lược</span>
+              <p class="team-desc">Định hướng chiến lược kinh doanh, điều phối liên phòng ban và dẫn dắt sự tăng trưởng bền vững của PillMate.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Strategic Oversight & Company Growth</span>
+              </div>
+            </div>
+
+            <!-- CPO: Võ Thị Phi Yến -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-cpo">PY</div>
+                <span class="team-badge badge-cpo">CPO</span>
+              </div>
+              <h4 class="team-name">Võ Thị Phi Yến</h4>
+              <div class="team-role">CPO — Product Development</div>
+              <span class="team-scope">Nghiên Cứu & Phát Triển Sản Phẩm</span>
+              <p class="team-desc">Nghiên cứu nhu cầu người bệnh, thiết kế tính năng hộp thuốc, nâng tầm trải nghiệm (UX) và quản lý vòng đời sản phẩm.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>User Research & Product Roadmap</span>
+              </div>
+            </div>
+
+            <!-- CTO: Doãn Nguyễn Phước Sanh -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-cto">PS</div>
+                <span class="team-badge badge-cto">CTO</span>
+              </div>
+              <h4 class="team-name">Doãn Nguyễn Phước Sanh</h4>
+              <div class="team-role">CTO — IoT Technology</div>
+              <span class="team-scope">Công Nghệ & Hệ Thống IoT</span>
+              <p class="team-desc">Kiến trúc hệ sinh thái IoT, phát triển vi mạch phần cứng, bảo mật dữ liệu y tế và tối ưu hiệu năng nền tảng.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>IoT Architecture & Security Engineering</span>
+              </div>
+            </div>
+
+            <!-- CFO: Huỳnh Thị Thanh Tiền -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-cfo">TT</div>
+                <span class="team-badge badge-cfo">CFO</span>
+              </div>
+              <h4 class="team-name">Huỳnh Thị Thanh Tiền</h4>
+              <div class="team-role">CFO — Financial Management</div>
+              <span class="team-scope">Quản Trị Tài Chính & Ngân Sách</span>
+              <p class="team-desc">Hoạch định cấu trúc tài chính, lập ngân sách tối ưu chi phí vận hành, phân tích hiệu quả đầu tư và lập báo cáo tài chính.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Budget Planning & Cost Analysis</span>
+              </div>
+            </div>
+
+            <!-- CMO: Nguyễn Như Huỳnh -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-cmo">NH</div>
+                <span class="team-badge badge-cmo">CMO</span>
+              </div>
+              <h4 class="team-name">Nguyễn Như Huỳnh</h4>
+              <div class="team-role">CMO — Marketing & Brand</div>
+              <span class="team-scope">Chiến Lược & Nhận Diện Thương Hiệu</span>
+              <p class="team-desc">Xây dựng chiến lược tiếp thị, lan tỏa giá trị thương hiệu PillMate và phát triển các kênh truyền thông y tế cộng đồng.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Brand Strategy & Communication Channels</span>
+              </div>
+            </div>
+
+            <!-- CCO: Nguyễn Văn Phi -->
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar avatar-cco">VP</div>
+                <span class="team-badge badge-cco">CCO</span>
+              </div>
+              <h4 class="team-name">Nguyễn Văn Phi</h4>
+              <div class="team-role">CCO — Customer Care & Relations</div>
+              <span class="team-scope">Quan Hệ Khách Hàng & Thị Trường</span>
+              <p class="team-desc">Quản lý hoạt động thị trường, chăm sóc hỗ trợ người dùng 24/7, lắng nghe phản hồi và duy trì sự hài lòng bền vững.</p>
+              <div class="team-tagline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Customer Care & Client Retention</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="order-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn">&times;</button>
+      <div style="margin-bottom: 20px;">
+        <span class="badge-tag">Tư Vấn Chuyên Sâu & Nhận Tài Liệu</span>
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-top: 4px;">Đăng Ký Tư Vấn Giải Pháp PillMate</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Vui lòng để lại thông tin, chuyên viên công nghệ y tế PillMate sẽ liên hệ tư vấn và gửi tài liệu chi tiết trong vòng 15-30 phút.</p>
+      </div>
+
+      <form id="order-checkout-form">
+        <div class="order-form-group">
+          <label for="modal-package-select">Giải pháp bạn đang quan tâm</label>
+          <select id="modal-package-select" required>
+            <option value="pro">PillMate Pro (Chăm sóc gia đình & người cao tuổi từ xa)</option>
+            <option value="core">PillMate Core (Quản lý thuốc cá nhân thông minh)</option>
+            <option value="enterprise">PillMate Enterprise (Giải pháp Bệnh viện & Viện dưỡng lão)</option>
+            <option value="partnership">Hợp tác nghiên cứu & Phân phối giải pháp</option>
+          </select>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-name">Họ và tên của bạn</label>
+          <input type="text" id="order-name" placeholder="Ví dụ: Nguyễn Văn An" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-phone">Số điện thoại liên hệ</label>
+          <input type="tel" id="order-phone" placeholder="Ví dụ: 0987 654 321" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-email">Email nhận tài liệu / Brochure (không bắt buộc)</label>
+          <input type="email" id="order-email" placeholder="Ví dụ: an.nguyen@example.com">
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-note">Nhu cầu cụ thể hoặc câu hỏi bạn cần giải đáp</label>
+          <textarea id="order-note" rows="3" placeholder="Ví dụ: Cần tư vấn thiết bị cho cha mẹ ở quê, theo dõi từ xa qua điện thoại..."></textarea>
+        </div>
+
+        <div class="order-summary-box">
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; margin-bottom:8px; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span><strong>Tư vấn 100% miễn phí:</strong> Đội ngũ kỹ thuật y tế tư vấn giải pháp tối ưu.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span><strong>Nhận trọn bộ tài liệu:</strong> Brochure thông số, kết quả thử nghiệm lâm sàng & chứng nhận y tế.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1.05rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px; vertical-align:middle;">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          Gửi yêu cầu nhận tư vấn
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom: 14px;">
+            <img src="assets/logo-transparent.png" alt="PillMate Logo" class="brand-logo-img footer-logo-img">
+            <div class="brand-text">
+              <div class="brand-name" style="color:white;">Pill<span style="color:var(--accent, #5fa896);">Mate</span></div>
+              <span class="brand-tagline" style="color:#94a3b8;">Trợ lý sức khỏe tại nhà</span>
+            </div>
+          </div>
+          <p>
+            PillMate là giải pháp y tế số thông minh tiên phong tại Việt Nam, mang công nghệ IoT và AI hỗ trợ người bệnh tuân thủ dùng thuốc đúng giờ, trọn vẹn sự an tâm cho mọi mái ấm.
+          </p>
+          <div style="font-size: 0.85rem; color:#94a3b8;">
+            Hotline: <strong>1900 8866</strong> (Miễn phí 24/7)<br>
+            Email: <strong>contact@pillmate.vn</strong><br>
+            Địa chỉ: Tầng 8, Tòa nhà Innovation Hub, Khu Công Nghệ Cao, TP. Hà Nội
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sản Phẩm</h4>
+          <ul class="footer-links">
+            <li><a href="#product" class="view-trigger" data-target="view-product">PillMate Pro</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">PillMate Core</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">Giải pháp Doanh nghiệp & Viện</a></li>
+            <li><a href="#product" class="view-trigger" data-target="view-product">Thông số kỹ thuật</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Giải Pháp</h4>
+          <ul class="footer-links">
+            <li><a href="#features" class="view-trigger" data-target="view-features">Nhắc nhở thông minh</a></li>
+            <li><a href="#features" class="view-trigger" data-target="view-features">Cảnh báo quên liều</a></li>
+            <li><a href="#features" class="view-trigger" data-target="view-features">Ứng dụng di động</a></li>
+            <li><a href="#ai-assistant" class="view-trigger" data-target="view-ai">Trợ lý Y tế AI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Về PillMate</h4>
+          <ul class="footer-links">
+            <li><a href="#about" class="view-trigger" data-target="view-about">Câu chuyện thương hiệu</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Hội đồng cố vấn</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Chứng nhận y tế ISO 13485</a></li>
+            <li><a href="#about" class="view-trigger" data-target="view-about">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 PillMate Vietnam Co., Ltd. Tất cả quyền được bảo lưu. Giấy phép thiết bị y tế số: 2400012/BYT-TB-BQP.
+        </div>
+        <div style="display:flex; gap:16px;">
+          <a href="#about" class="view-trigger" data-target="view-about">Điều khoản dịch vụ</a>
+          <span>•</span>
+          <a href="#about" class="view-trigger" data-target="view-about">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>

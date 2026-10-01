@@ -1,0 +1,103 @@
+<section id="view-ai" class="view-section">
+      <div class="container ai-section">
+        <div class="section-header">
+          <span class="section-subtitle">Trí Tuệ Nhân Tạo Chăm Sóc Sức Khỏe</span>
+          <h2 class="section-title">Trợ Lý AI PillMate – Tư Vấn & Quản Lý Toa Thuốc</h2>
+          <p class="section-lead">Hỏi đáp lịch trình, gợi ý thời gian uống tối ưu và hỗ trợ xử lý tình huống quên liều.</p>
+        </div>
+
+        <!-- Mandatory Medical Disclaimer Banner -->
+        <div class="ai-disclaimer-banner">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <div class="ai-disclaimer-text">
+            <h5>Khuyến cáo y khoa quan trọng</h5>
+            <p>
+              Trợ lý Trí tuệ nhân tạo PillMate đóng vai trò hỗ trợ quản lý lịch trình nhắc nhở và cung cấp thông tin tham khảo. 
+              <strong>Trợ lý AI tuyệt đối không thay thế việc chẩn đoán, điều trị hay chỉ định chuyên môn trực tiếp từ bác sĩ chuyên khoa hoặc dược sĩ.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Chat-Style UI -->
+        <div class="chat-container-card">
+          <!-- Chat Sidebar -->
+          <div class="chat-sidebar">
+            <div class="chat-sidebar-header">
+              <div class="ai-avatar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+              </div>
+              <div class="chat-sidebar-title">
+                <h4>PillMate AI Assistant</h4>
+                <span>Sẵn sàng phản hồi</span>
+              </div>
+            </div>
+
+            <div class="suggested-prompts-label">Câu hỏi gợi ý nhanh</div>
+            <div class="suggested-prompts-list">
+              <button type="button" class="prompt-chip" data-prompt="Tôi vừa quên uống liều thuốc trưa thì xử lý như thế nào?">
+                💊 Quên uống liều trưa thì xử lý sao?
+              </button>
+              <button type="button" class="prompt-chip" data-prompt="Nhắc tôi uống thuốc huyết áp lúc 8h sáng mỗi ngày">
+                ⏰ Đặt lịch thuốc huyết áp 8h sáng
+              </button>
+              <button type="button" class="prompt-chip" data-prompt="Kiểm tra tương tác giữa Paracetamol và thuốc kháng sinh">
+                🔍 Tương tác Paracetamol & Kháng sinh
+              </button>
+              <button type="button" class="prompt-chip" data-prompt="Lên lịch uống thuốc tiểu đường sau bữa ăn">
+                🍚 Lịch uống thuốc tiểu đường sau ăn
+              </button>
+              <button type="button" class="prompt-chip" data-prompt="Hộp thuốc PillMate có tính năng gì nổi bật?">
+                💡 Tính năng nổi bật của PillMate
+              </button>
+              <button type="button" class="prompt-chip" data-prompt="Ứng dụng di động kết nối với gia đình như thế nào?">
+                📱 Kết nối ứng dụng gia đình
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Main Area -->
+          <div class="chat-main">
+            <div class="chat-header">
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--dark);">Hội thoại chăm sóc sức khỏe trực tuyến</h4>
+                <p class="chat-status">Dữ liệu được mã hóa y tế chuẩn HIPAA</p>
+              </div>
+              <span class="box-status-pill" id="ai-model-badge" style="background:linear-gradient(135deg, #f97316, #ea580c); color:#fff; font-weight:700;">⚡ Groq • Qwen 27B</span>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+              <div class="message-bubble message-ai">
+                Xin chào! Tôi là <strong>Trợ lý Y tế PillMate</strong> 💙.<br>
+                Tôi có thể giúp bạn lên lịch uống thuốc tự động, hướng dẫn xử lý an toàn khi quên liều hoặc kiểm tra các lưu ý dinh dưỡng khi dùng thuốc.<br>
+                Hôm nay bạn cần tôi hỗ trợ điều gì?
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <form class="chat-form" id="chat-form">
+                <input 
+                  type="text" 
+                  class="chat-input" 
+                  id="chat-input" 
+                  placeholder="Nhập câu hỏi y tế hoặc yêu cầu đặt lịch (ví dụ: 'Tôi quên uống thuốc huyết áp')..."
+                  autocomplete="off"
+                >
+                <button type="submit" class="btn btn-primary" style="border-radius:var(--radius-full); padding:10px 22px;">
+                  Gửi
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

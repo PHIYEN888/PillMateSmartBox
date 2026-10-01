@@ -1,0 +1,65 @@
+<div class="modal-overlay" id="order-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn">&times;</button>
+      <div style="margin-bottom: 20px;">
+        <span class="badge-tag">Tư Vấn Chuyên Sâu & Nhận Tài Liệu</span>
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-top: 4px;">Đăng Ký Tư Vấn Giải Pháp PillMate</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Vui lòng để lại thông tin, chuyên viên công nghệ y tế PillMate sẽ liên hệ tư vấn và gửi tài liệu chi tiết trong vòng 15-30 phút.</p>
+      </div>
+
+      <form id="order-checkout-form">
+        <div class="order-form-group">
+          <label for="modal-package-select">Giải pháp bạn đang quan tâm</label>
+          <select id="modal-package-select" required>
+            <option value="pro">PillMate Pro (Chăm sóc gia đình & người cao tuổi từ xa)</option>
+            <option value="core">PillMate Core (Quản lý thuốc cá nhân thông minh)</option>
+            <option value="enterprise">PillMate Enterprise (Giải pháp Bệnh viện & Viện dưỡng lão)</option>
+            <option value="partnership">Hợp tác nghiên cứu & Phân phối giải pháp</option>
+          </select>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-name">Họ và tên của bạn</label>
+          <input type="text" id="order-name" placeholder="Ví dụ: Nguyễn Văn An" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-phone">Số điện thoại liên hệ</label>
+          <input type="tel" id="order-phone" placeholder="Ví dụ: 0987 654 321" required>
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-email">Email nhận tài liệu / Brochure (không bắt buộc)</label>
+          <input type="email" id="order-email" placeholder="Ví dụ: an.nguyen@example.com">
+        </div>
+
+        <div class="order-form-group">
+          <label for="order-note">Nhu cầu cụ thể hoặc câu hỏi bạn cần giải đáp</label>
+          <textarea id="order-note" rows="3" placeholder="Ví dụ: Cần tư vấn thiết bị cho cha mẹ ở quê, theo dõi từ xa qua điện thoại..."></textarea>
+        </div>
+
+        <div class="order-summary-box">
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; margin-bottom:8px; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span><strong>Tư vấn 100% miễn phí:</strong> Đội ngũ kỹ thuật y tế tư vấn giải pháp tối ưu.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; color:var(--dark);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span><strong>Nhận trọn bộ tài liệu:</strong> Brochure thông số, kết quả thử nghiệm lâm sàng & chứng nhận y tế.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1.05rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px; vertical-align:middle;">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          Gửi yêu cầu nhận tư vấn
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->

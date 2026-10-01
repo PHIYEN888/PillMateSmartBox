@@ -17,28 +17,48 @@ document.addEventListener('DOMContentLoaded', () => {
    0. Theme Mode (Light / Dark)
    ========================================================================== */
 function initThemeMode() {
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggles = document.querySelectorAll('.theme-pill-btn, #theme-toggle, #mobile-theme-toggle');
   const storedTheme = localStorage.getItem('pillmate-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   
   const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', initialTheme);
+  applyTheme(initialTheme, false);
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+  function applyTheme(theme, showNotification = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('pillmate-theme', theme);
+
+    // Update mobile toggle label if present
+    const mobileText = document.querySelector('.mobile-theme-text');
+    if (mobileText) {
+      mobileText.textContent = theme === 'dark' ? '🌙 Chế độ Ban đêm' : '☀️ Chế độ Ban ngày';
+    }
+
+    // Update aria labels
+    themeToggles.forEach(btn => {
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối');
+      btn.setAttribute('title', theme === 'dark' ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối');
+    });
+
+    if (showNotification) {
+      showToast(theme === 'dark' ? '🌙 Đã chuyển sang giao diện Ban đêm' : '☀️ Đã chuyển sang giao diện Ban ngày');
+    }
+  }
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
       const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', targetTheme);
-      localStorage.setItem('pillmate-theme', targetTheme);
-      showToast(targetTheme === 'dark' ? '🌙 Đã chuyển sang giao diện Ban đêm' : '☀️ Đã chuyển sang giao diện Ban ngày');
+      applyTheme(targetTheme, true);
     });
-  }
+  });
 
   // Follow system theme changes if user hasn't chosen manually
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
       if (!localStorage.getItem('pillmate-theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        applyTheme(e.matches ? 'dark' : 'light', false);
       }
     });
   }
@@ -130,13 +150,28 @@ function initNavigation() {
     switchView(viewId, true);
   };
 
-  // Link click events
+  // Link click events (seamless for both SPA and standalone pages)
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const targetView = link.getAttribute('data-target');
       if (targetView) {
-        e.preventDefault();
-        switchView(targetView, true);
+        const targetSection = document.getElementById(targetView);
+        if (targetSection) {
+          e.preventDefault();
+          switchView(targetView, true);
+        } else {
+          const pageMap = {
+            'view-home': 'index.html',
+            'view-product': 'product.html',
+            'view-features': 'features.html',
+            'view-ai': 'ai.html',
+            'view-about': 'about.html'
+          };
+          if (pageMap[targetView]) {
+            e.preventDefault();
+            window.location.href = pageMap[targetView];
+          }
+        }
       }
     });
   });
