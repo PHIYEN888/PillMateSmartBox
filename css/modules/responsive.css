@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Responsive Breakpoints & Mobile Adaptability
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .product-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .pillars-grid, .pricing-grid, .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .features-grid, .steps-grid, .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .family-showcase {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+  .chat-container-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 620px;
+    max-height: 82vh;
+  }
+  .chat-sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  .chat-sidebar-header {
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  .suggested-prompts-label {
+    margin-bottom: 6px;
+    font-size: 0.72rem;
+  }
+  .suggested-prompts-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    gap: 8px;
+  }
+  .prompt-chip {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-container {
+    height: 70px;
+  }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 999;
+    gap: 12px;
+  }
+  .nav-menu.active {
+    display: flex;
+    animation: fadeIn 0.25s ease-out;
+  }
+  .nav-link {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+  }
+  .mobile-only-nav-item {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-consult-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-actions {
+    gap: 10px;
+  }
+  .hero {
+    padding: 40px 0 60px;
+  }
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .pillars-grid, .pricing-grid, .testimonials-grid, .features-grid, .steps-grid, .team-grid, .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+  .floating-badge {
+    position: static;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  .nav-container {
+    height: 64px;
+  }
+  .brand-logo-img {
+    height: 36px;
+    max-width: 58px;
+  }
+  .brand-name {
+    font-size: 1.15rem;
+  }
+  .brand-tagline {
+    display: none;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .nav-cta-text {
+    display: none;
+  }
+  .nav-cta-btn {
+    padding: 8px 10px;
+    border-radius: var(--radius-full);
+  }
+  .theme-pill-btn {
+    width: 58px;
+    height: 30px;
+  }
+  .theme-pill-thumb {
+    width: 22px;
+    height: 22px;
+    top: 2.5px;
+  }
+  [data-theme="dark"] .theme-pill-thumb {
+    transform: translateX(28px);
+  }
+  .mobile-theme-row {
+    display: flex;
+  }
+  .hero {
+    padding: 30px 0 50px;
+  }
+  .badge-tag {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+  .hero-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+    line-height: 1.25;
+  }
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 22px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+  }
+  .hero-trust-indicators {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+  .hero-device-card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+  .pill-compartments-grid {
+    gap: 4px;
+  }
+  .compartment {
+    font-size: 0.65rem;
+    border-radius: 6px;
+  }
+  .interactive-box-wrapper {
+    padding: 22px 14px;
+    border-radius: var(--radius-md);
+  }
+  .interactive-pillbox {
+    padding: 16px 10px;
+    border-radius: var(--radius-sm);
+  }
+  .interactive-slots-row {
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .slot-btn {
+    aspect-ratio: 0.8;
+    padding: 4px 1px;
+    font-size: 0.65rem;
+  }
+  .slot-day {
+    font-size: 0.68rem;
+  }
+  .slot-led-light {
+    width: 6px;
+    height: 6px;
+  }
+  .slot-detail-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+  }
+  .product-specs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .spec-box {
+    padding: 12px 10px;
+  }
+  .spec-box h5 {
+    font-size: 0.74rem;
+  }
+  .spec-box p {
+    font-size: 0.88rem;
+  }
+  .pricing-card {
+    padding: 24px 16px;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .chat-container-card {
+    border-radius: var(--radius-md);
+  }
+  .chat-messages {
+    padding: 14px;
+  }
+  .message-bubble {
+    max-width: 92%;
+    font-size: 0.86rem;
+    padding: 10px 14px;
+  }
+  .chat-input-area {
+    padding: 12px 14px;
+  }
+  .chat-input {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .modal-content {
+    padding: 22px 16px;
+    border-radius: var(--radius-md);
+    max-width: 95%;
+  }
+  .modal-close {
+    top: 14px;
+    right: 14px;
+  }
+  .toast-container {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .toast {
+    font-size: 0.82rem;
+    padding: 10px 12px;
+  }
+}

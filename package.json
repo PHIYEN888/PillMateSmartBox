@@ -1,0 +1,20 @@
+{
+  "name": "pillmate-smartbox",
+  "version": "1.0.0",
+  "description": "PillMate - Người trợ lý chăm sóc sức khỏe tại nhà | Hộp thuốc thông minh IoT & Trợ lý Y tế AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node scripts/build-pages.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "pillmate",
+    "iot",
+    "healthtech",
+    "smart-pillbox",
+    "groq-ai"
+  ],
+  "author": "PillMate Team",
+  "license": "MIT"
+}

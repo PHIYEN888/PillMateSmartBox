@@ -2,44 +2,111 @@
 
 Hộp thuốc thông minh thế hệ mới kết hợp Trí tuệ nhân tạo (AI) và Internet of Things (IoT). Giải pháp đồng hành giúp người bệnh và người cao tuổi tuân thủ điều trị an toàn, đúng giờ và đúng liều.
 
+---
+
 ## 🌟 Tính Năng Nổi Bật
 
 - **Đèn LED chỉ dẫn đa màu**: Hướng dẫn chính xác ngăn thuốc cần uống theo từng khung giờ.
-- **Chuông báo đa âm tần**: Nhắc nhở âm lượng rõ ràng, nhẹ nhàng, không gây giật mình cho người lớn tuổi.
-- **Cảm biến hồng ngoại mở nắp**: Xác thực việc mở nắp lấy thuốc và gửi cảnh báo mở sai ngăn.
-- **Khóa thông minh an toàn**: Tự động khóa ngăn khi phát hiện nguy cơ quá liều hoặc chưa tới giờ uống.
-- **Trợ lý AI Y tế (Groq Cloud)**: Tích hợp mô hình AI siêu tốc `qwen/qwen3.8-27b` tư vấn xử lý quên liều, phân tích tương tác thuốc và dinh dưỡng chuẩn dược lâm sàng.
-- **Giao diện đa thiết bị**: Tương thích hoàn hảo trên điện thoại, máy tính bảng và máy tính để bàn (Responsive Design).
-- **Hỗ trợ chế độ Sáng / Tối (Light & Dark Mode)**: Chuyển đổi giao diện dễ chịu cho mắt theo thời gian ngày/đêm.
+- **Chuông báo đa âm tần**: Nhắc nhở âm lượng rõ ràng, nhẹ nhàng, phù hợp cho người lớn tuổi.
+- **Trợ lý AI Y tế (Groq Cloud)**: Tích hợp mô hình AI siêu tốc tư vấn xử lý quên liều, phân tích tương tác thuốc và dinh dưỡng chuẩn dược lâm sàng.
+- **Chế độ Sáng / Tối linh hoạt (Sliding Pill Switch)**: Nút gạt hiện đại chuyển đổi mượt mà giữa chế độ Ban ngày (☀️) và Ban đêm (🌙).
+- **Thiết kế Responsive hoàn hảo**: Tương thích mượt mà trên Mobile, Tablet và Desktop.
 
-## 🚀 Hướng Dẫn Cài Đặt & Chạy Website
+---
+
+## 🏗️ Cấu Trúc Dự Án (Refactored Architecture)
+
+Dự án được tái cấu trúc theo mô hình module hóa sạch sẽ, tách biệt độc lập giữa HTML, CSS và JavaScript:
+
+```
+├── index.html              # Trang chủ SPA đầy đủ tính năng
+├── product.html            # Trang độc lập: Chi tiết sản phẩm & thông số
+├── features.html           # Trang độc lập: Hệ sinh thái tính năng IoT
+├── ai.html                 # Trang độc lập: Trợ lý Y tế AI (Groq Cloud)
+├── about.html              # Trang độc lập: Về chúng tôi & Đội ngũ sáng lập
+│
+├── sections/               # HTML Partial Components tái sử dụng
+│   ├── header.html         # Thanh điều hướng & nút gạt theme
+│   ├── home.html           # Banner & mô phỏng hộp thuốc
+│   ├── product.html        # Chi tiết cấu tạo & thông số kỹ thuật
+│   ├── features.html       # Tính năng nổi bật & quy trình
+│   ├── ai.html             # Trợ lý AI chat & prompts gợi ý
+│   ├── about.html          # Ban lãnh đạo & chứng chỉ y tế
+│   ├── modal.html          # Hộp thoại tư vấn & đặt hàng
+│   └── footer.html         # Chân trang & liên kết hỗ trợ
+│
+├── css/                    # Kiến trúc CSS Module hóa
+│   ├── style.css           # CSS Master Entry Point
+│   └── modules/
+│       ├── variables.css   # Color tokens & Light/Dark Theme variables
+│       ├── base.css        # Reset, typography & container
+│       ├── header.css      # Header, Navigation & Sliding Pill Switch
+│       ├── hero.css        # Hero banner & Interactive Pillbox Simulator
+│       ├── product.css     # Product showcase & specs
+│       ├── features.css    # Feature grid & timeline
+│       ├── ai.css          # AI chat interface & styling
+│       ├── about.css       # Team grid & testimonials
+│       ├── modal.css       # Modal dialog & backdrop
+│       ├── footer.css      # Footer styling
+│       └── responsive.css   # Media queries & mobile navigation
+│
+├── js/                     # Kiến trúc JavaScript ES Module hóa
+│   ├── app.js              # Master orchestrator
+│   └── modules/
+│       ├── theme.js        # Quản lý chế độ Sáng / Tối (Theme Mode)
+│       ├── navigation.js   # Điều hướng SPA + Standalone routing
+│       ├── simulator.js    # Mô phỏng tương tác 6 ngăn thuốc IoT
+│       ├── ai-assistant.js # Trợ lý AI (Groq API + Local Fallback)
+│       ├── faq.js          # Accordion hỏi đáp thường gặp
+│       ├── modal.js        # Đăng ký tư vấn & Pre-order
+│       └── toast.js        # Thông báo tương tác thời gian thực
+│
+├── scripts/                # Tiện ích tự động hóa
+│   ├── build-pages.js      # Biên dịch các trang HTML từ sections/
+│   └── test-endpoints.js   # Kiểm tra tính toàn vẹn 27 endpoints
+│
+├── server.js               # Node.js Web Server & Groq API Gateway
+├── package.json            # Scripts & cấu hình dự án
+└── .env.example            # Mẫu cấu hình API key
+```
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt & Khởi Chạy
 
 ### Yêu cầu
 - Node.js (phiên bản 18+ khuyến nghị)
 
-### Cài đặt và khởi chạy
+### Các bước thực hiện
 
-1. Clone repository về máy:
-```bash
-git clone https://github.com/PHIYEN888/PillMateSmartBox.git
-cd PillMateSmartBox
-```
+1. **Clone repository về máy**:
+   ```bash
+   git clone https://github.com/PHIYEN888/PillMateSmartBox.git
+   cd PillMateSmartBox
+   ```
 
-2. Tạo tệp cấu hình `.env` từ `.env.example`:
-```bash
-cp .env.example .env
-```
-Điền `GROQ_API_KEY` của bạn vào tệp `.env` (Lấy API Key miễn phí tại [Groq Console](https://console.groq.com/keys)).
+2. **Cấu hình biến môi trường**:
+   ```bash
+   cp .env.example .env
+   ```
+   *(Thêm Groq API Key vào `.env` nếu muốn sử dụng mô hình AI trực tiếp từ Cloud)*
 
-3. Khởi động server:
-```bash
-node server.js
-```
+3. **Biên dịch mã nguồn HTML từ các component (nếu có chỉnh sửa)**:
+   ```bash
+   npm run build
+   ```
 
-4. Mở trình duyệt và truy cập:
-```
-http://localhost:5173
-```
+4. **Khởi động server**:
+   ```bash
+   npm start
+   ```
+
+5. **Mở trình duyệt và trải nghiệm**:
+   ```
+   http://localhost:5173
+   ```
+
+---
 
 ## 👥 Đội Ngũ Phát Triển Nòng Cốt
 
@@ -47,8 +114,10 @@ http://localhost:5173
 - **CPO — Product Development**: Võ Thị Phi Yến
 - **CTO — IoT Technology**: Doãn Nguyễn Phước Sanh
 - **CFO — Financial Management**: Huỳnh Thị Thanh Tiền
-- **CMO — Marketing & Brand**: Nguyễn Như Huỳnh
-- **CCO — Customer Care & Relations**: Nguyễn Văn Phi
+- **CMO — Marketing & Brand Development**: Nguyễn Như Huỳnh
+- **CCO — Sales & Customer Care**: Nguyễn Văn Phi
+
+---
 
 ## 📄 Bản Quyền & Giấy Phép
 
