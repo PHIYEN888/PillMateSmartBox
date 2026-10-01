@@ -89,7 +89,6 @@ Dự án được tái cấu trúc theo mô hình module hóa sạch sẽ, tách
    ```bash
    cp .env.example .env
    ```
-   *(Thêm Groq API Key vào `.env` nếu muốn sử dụng mô hình AI trực tiếp từ Cloud)*
 
 3. **Biên dịch mã nguồn HTML từ các component (nếu có chỉnh sửa)**:
    ```bash
@@ -104,6 +103,8 @@ Dự án được tái cấu trúc theo mô hình module hóa sạch sẽ, tách
 5. **Mở trình duyệt và trải nghiệm**:
    ```
    http://localhost:5173
+
+   https://pillmatesmartbox.vercel.app/
    ```
 
 ---

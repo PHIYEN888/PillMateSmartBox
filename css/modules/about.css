@@ -24,7 +24,7 @@
 .about-value-box h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 12px;
 }
 
@@ -108,7 +108,7 @@
 .team-name {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 4px;
   line-height: 1.3;
 }

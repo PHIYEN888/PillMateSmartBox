@@ -50,7 +50,7 @@
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.03em;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 20px;
 }
 
@@ -112,6 +112,11 @@
   backdrop-filter: blur(10px);
 }
 
+[data-theme="dark"] .hero-device-card {
+  background: linear-gradient(145deg, #121a2e 0%, #18233c 100%);
+  border-color: var(--border);
+}
+
 .smart-box-preview {
   position: relative;
   background: #ffffff;
@@ -119,6 +124,11 @@
   padding: 24px;
   border: 1px solid var(--border);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .smart-box-preview {
+  background: #0a0f1d;
+  border-color: var(--border);
 }
 
 .smart-box-header {
@@ -293,7 +303,7 @@
 .floating-badge h5 {
   font-size: 0.9rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-title);
 }
 
 .floating-badge p {
@@ -323,7 +333,7 @@
 .section-title {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-title);
   letter-spacing: -0.02em;
   line-height: 1.25;
   margin-bottom: 14px;
@@ -399,7 +409,7 @@
 .pillar-title {
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 12px;
 }
 
@@ -413,7 +423,7 @@
    Product Benefits & Stats Bar
    ========================================================================== */
 .stats-banner {
-  background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
   border-radius: var(--radius-lg);
   padding: 44px;
@@ -421,6 +431,12 @@
   box-shadow: var(--shadow-xl);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .stats-banner {
+  background: linear-gradient(135deg, #080d19 0%, #152238 100%);
+  border: 1px solid var(--border);
 }
 
 .stats-banner::after {
@@ -460,7 +476,7 @@
    ========================================================================== */
 .workflow-section {
   padding: 60px 0 80px;
-  background-color: white;
+  background-color: var(--bg-card);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -484,7 +500,7 @@
 .step-card:hover {
   transform: translateY(-4px);
   border-color: var(--primary);
-  background: #ffffff;
+  background: var(--bg-subtle);
   box-shadow: var(--shadow-md);
 }
 
@@ -505,7 +521,7 @@
 .step-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 8px;
 }
 
@@ -574,7 +590,7 @@
 .author-info h5 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-title);
 }
 
 .author-info p {
@@ -616,7 +632,7 @@
   text-align: left;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-title);
   cursor: pointer;
 }
 

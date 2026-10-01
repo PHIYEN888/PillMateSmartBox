@@ -59,7 +59,7 @@
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--dark);
+  color: var(--text-title);
   display: flex;
   align-items: center;
   gap: 2px;
@@ -196,6 +196,10 @@
   border-radius: var(--radius-md);
 }
 
+.mobile-only-nav-item {
+  display: none !important;
+}
+
 .mobile-theme-label {
   font-size: 0.9rem;
   font-weight: 600;
@@ -209,16 +213,17 @@
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-link {
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-muted);
   border-radius: var(--radius-full);
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .nav-link:hover {

@@ -101,8 +101,11 @@
     padding: 10px 16px;
     border-radius: var(--radius-sm);
   }
+  .mobile-theme-row {
+    display: flex !important;
+  }
   .mobile-only-nav-item {
-    display: block;
+    display: block !important;
     width: 100%;
     margin-top: 6px;
     padding-top: 10px;

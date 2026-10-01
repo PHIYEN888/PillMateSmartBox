@@ -37,7 +37,7 @@
 .feature-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-title);
   margin-bottom: 10px;
 }
 
